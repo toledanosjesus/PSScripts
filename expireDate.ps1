@@ -20,7 +20,7 @@ $CHECK = "FALSE"
 while ($CHECK -eq "FALSE") {
 
     # Ask for the user to check
-    $USER = Read-Host 'What is the user?'
+    $USER = Read-Host 'Who is the user?'
 
     # Get the user properties
     $INFOUSER = Get-ADUser -filter {SamAccountName -eq $USER} –Properties "DisplayName", "msDS-UserPasswordExpiryTimeComputed" | Select-Object -Property "Displayname",@{Name="ExpiryDate";Expression={[datetime]::FromFileTime($_."msDS-UserPasswordExpiryTimeComputed")}}
