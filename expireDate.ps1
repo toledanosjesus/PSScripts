@@ -34,11 +34,8 @@ while ($CHECK -eq "FALSE") {
         # Select the name
         $NAME = $INFOUSER.DisplayName
         
-        # Convert to string
-        $INFOUSER = [string]$INFOUSER
-        
         # Select the expiry date
-        $DATE = $INFOUSER.Substring($INFOUSER.Length-20,19)
+        $DATE = $INFOUSER.Substring(([string]$INFOUSER).Length-20,19)
      
         # Show the expire date
         [System.Windows.Forms.MessageBox]::Show("The expire date for $NAME is $DATE" , "Status") 
